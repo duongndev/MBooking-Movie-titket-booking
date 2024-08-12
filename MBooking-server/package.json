@@ -1,0 +1,37 @@
+{
+  "name": "mbooking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "data:import": "node src/seederScript"
+  },
+  "keywords": [],
+  "author": "duongnd",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.2",
+    "cloudinary": "^2.2.0",
+    "cors": "^2.8.5",
+    "date-fns": "^3.6.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.2.0",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^5.11.8",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1",
+    "uuid-mongodb": "^2.5.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
