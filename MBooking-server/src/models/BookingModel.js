@@ -7,26 +7,25 @@ const bookingSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    showtimeId: {
-      type: String,
+    schedule_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Schedule",
       required: true,
     },
-    seats: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Seat",
-        required: true,
-      },
-    ],
-    bookingDate: {
-      type: Date,
-      default: Date.now,
+    seat_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Seats",
+      required: true,
     },
-    totalAmount: {
+    price: {
       type: Number,
       required: true,
     },
-    status: {
+    booking_date: {
+      type: Date,
+      default: Date.now,
+    },
+    booking_status: {
       type: String,
       enum: ["pending", "confirmed", "cancelled"],
       default: "pending",

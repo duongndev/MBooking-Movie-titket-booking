@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.recyclerViewComingSoon.setHasFixedSize(true)
-        movieModelList = mutableListOf()
 
         comingSoonAdapter = ComingSoonAdapter(movieModelList, requireContext())
         binding.recyclerViewComingSoon.adapter = comingSoonAdapter
@@ -46,94 +45,37 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val movieList = listOf(
-            MovieModel(
-                1,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                2,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                3,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                4,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                5,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                6,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                7,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                8,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                9,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-            MovieModel(
-                10,
-                "Avengers - Infinity War",
-                "2h 30m",
-                "Action, Adventure, Sci-Fi",
-                "8.5",
-                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"
-            ),
-        )
+        // tu dong tang so tu 1 - 10
+        val intList = mutableListOf<Int>()
+        val movieModelList = mutableListOf<MovieModel>()
+        for (i in 1..10) {
+            intList.add(i)
+            val movieList = listOf(
+                MovieModel(
+                    i,
+                    "Avengers - Infinity War",
+                    "2h 30m",
+                    "Action, Adventure, Sci-Fi",
+                    "8.5",
+                    "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
+                    listOf("Anthony Russo", "Joe Russo"),
+                    listOf("Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"),
+                    "Action, Adventure, Sci-Fi",
+                    "2018",
+                    "English",
+                    "USA",
+                    "Action, Adventure, Sci-Fi",
+                )
+            )
+
+            movieModelList.addAll(movieList)
+        }
         nowPlayingAdapter = NowPlayingAdapter(
-            movieList,
+            movieModelList,
             requireContext()
         )
 
-        movieModelList.addAll(movieList)
+        movieModelList.addAll(movieModelList)
         comingSoonAdapter.notifyDataSetChanged()
 
 
@@ -141,28 +83,27 @@ class HomeFragment : Fragment() {
             while (isActive) {
                 delay(3000)
                 binding.viewPagerNowPlaying.currentItem =
-                    (binding.viewPagerNowPlaying.currentItem + 1) % movieList.size
+                    (binding.viewPagerNowPlaying.currentItem + 1) % movieModelList.size
             }
         }
-
-        // clicked item viewpager
 
         binding.viewPagerNowPlaying.apply {
             clipToPadding = false
             clipChildren = false
             offscreenPageLimit = 1
-            setPadding(100, 0, 100, 0)
+            setPadding(150, 0, 150, 0)
             adapter = nowPlayingAdapter
             setPageTransformer { page, position ->
-                val scaleFactor = 0.85f + (1 - abs(position)) * 0.15f
-                page.scaleY = scaleFactor
-                page.scaleX = scaleFactor
+                val scale = 0.85f + (1 - abs(position)) * 0.15f
+                page.scaleX = scale
+                page.scaleY = scale
 
-                val alphaFactor = 0.5f + (1 - abs(position)) * 0.5f
-                page.alpha = alphaFactor
+                val alpha = MIN_ALPHA + (MAX_ALPHA - MIN_ALPHA) * (1 - abs(position))
+                page.alpha = alpha
 
                 // Optional: Adjust translation if you want to offset the pages
-                page.translationX = -position * page.width / 4
+                page.translationX = (-position * page.width) / 4
+
             }
 
         }
@@ -175,6 +116,10 @@ class HomeFragment : Fragment() {
 
     }
 
+    companion object {
+        private const val MAX_ALPHA = 1.0f
+        private const val MIN_ALPHA = 0.2f
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

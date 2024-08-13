@@ -34,7 +34,7 @@ class NowPlayingAdapter(
         val movie = moviesList[position]
         holder.movieTitle.text = movie.title
         holder.movieDuration.text = movie.duration
-        holder.movieDesc.text = movie.description
+        holder.movieDesc.text = movie.genre
         holder.movieRating.text = movie.rating
 
         Glide.with(context)

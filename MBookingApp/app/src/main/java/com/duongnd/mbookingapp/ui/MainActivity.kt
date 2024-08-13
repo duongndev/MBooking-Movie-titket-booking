@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.bottomNavMain.setOnItemSelectedListener { item ->
             binding.bottomNavMain.menu.findItem(binding.bottomNavMain.selectedItemId)
                 ?.setIcon(getUnselectedIcon(binding.bottomNavMain.selectedItemId))

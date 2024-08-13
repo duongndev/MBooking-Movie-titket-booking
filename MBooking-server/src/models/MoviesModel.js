@@ -14,7 +14,7 @@ const movieSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    cast: {
+    actors: {
       type: [String],
       required: true,
     },
@@ -50,9 +50,10 @@ const movieSchema = mongoose.Schema(
     language: {
       type: String,
     },
-    Censorship: {
+    censorship: {
       type: String,
-    }
+    },
+    
   },
   {
     timestamps: true,

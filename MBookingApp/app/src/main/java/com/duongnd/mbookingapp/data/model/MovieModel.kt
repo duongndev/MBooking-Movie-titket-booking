@@ -6,5 +6,12 @@ data class MovieModel (
     val duration: String,
     val description: String,
     val rating: String,
-    val posterPath: String
+    val posterPath: String,
+    val director: List<String>,
+    val actors: List<String>,
+    val genre: String,
+    val releaseDate: String,
+    val language: String,
+    val country: String,
+    val censorship: String
 )

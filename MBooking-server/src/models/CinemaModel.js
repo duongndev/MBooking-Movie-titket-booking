@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 
 const cinemaSchema = new mongoose.Schema(
   {
-    nameCinema: {
+    cinema_name: {
+      type: String,
+      required: true,
+    },
+    cinema_address: {
       type: String,
       required: true,
     },
@@ -16,7 +20,6 @@ const cinemaSchema = new mongoose.Schema(
     },
     location: {
       type: String,
-      required: true,
     },
     
   },
@@ -26,6 +29,6 @@ const cinemaSchema = new mongoose.Schema(
   }
 );
 
-const Category = mongoose.model("Cinema", cinemaSchema);
+const Category = mongoose.model("Cinemas", cinemaSchema);
 
 module.exports = Category;

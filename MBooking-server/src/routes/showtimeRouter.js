@@ -1,22 +1,22 @@
 const router = require("express").Router();
-const {
-  addShowtime,
-  updateShowtime,
-  deleteShowtime,
-  getAllShowtimes,
-  getShowtimesById,
-} = require("../controller/showtimeController");
+// const {
+//   addShowtime,
+//   updateShowtime,
+//   deleteShowtime,
+//   getAllShowtimes,
+//   getShowtimesById,
+// } = require("../controller/showtimeController");
 
-const { verifyUser, verifyAdmin } = require("../middleware/authMiddleware");
+// const { verifyUser, verifyAdmin } = require("../middleware/authMiddleware");
 
-router.post("/", addShowtime);
+// router.post("/", addShowtime);
 
-router.get("/", getAllShowtimes);
+// router.get("/", getAllShowtimes);
 
-router.get("/:id", getShowtimesById);
+// router.get("/:id", getShowtimesById);
 
-router.put("/:id", updateShowtime);
+// router.put("/:id", updateShowtime);
 
-router.delete("/:id", deleteShowtime);
+// router.delete("/:id", deleteShowtime);
 
 module.exports = router;

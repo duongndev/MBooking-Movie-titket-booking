@@ -30,7 +30,7 @@ class ComingSoonAdapter(
     override fun onBindViewHolder(holder: NowPlayingViewHolder, position: Int) {
         val movie = moviesList[position]
         holder.movieTitle.text = movie.title
-        holder.movieDesc.text = movie.description
+        holder.movieDesc.text = movie.genre
         Glide.with(context)
             .load(movie.posterPath)
             .into(holder.moviePoster)
